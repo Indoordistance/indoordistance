@@ -2,33 +2,56 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<title>Indoor Distance - Kontakt</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<h1>INDOOR DISTANCE</h1>
 <nav>
+<div><strong>Indoor Distance</strong></div>
+<div>
 <a href="index.html">Hem</a>
-<a href="sociala.html">Sociala medier</a>
+<a href="tjanster.html">Tjänster</a>
 <a href="om.html">Om oss</a>
-<a href="kontakt.html">Kontakta oss</a>
+<a href="sociala.html">Media</a>
+<a href="kontakt.html">Kontakta</a>
+</div>
 </nav>
-</header>
 
 <div class="container">
-<h2>Kontakta oss</h2>
-<p>
-För samarbeten eller frågor:
-</p>
+
+<h1>Kontakta oss</h1>
+
+<p>Har du frågor eller är du intresserad av samarbete?</p>
 
 <div class="card">
-<p>📧 info.indoordistance@gmail.com</p>
+
+<form id="contactForm">
+
+<input type="text" placeholder="Ditt namn" required>
+<input type="email" placeholder="Din e-postadress" required>
+<textarea placeholder="Ditt meddelande" required></textarea>
+
+<button type="submit" class="button">Skicka</button>
+
+</form>
+
+<p id="successMessage" style="display:none; margin-top:20px;">
+Tack för att du kontaktade oss vi jobbar för att så snabbt som möjligt ska kunna svara på dina frågor
+</p>
+
 </div>
 
 </div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+e.preventDefault();
+document.getElementById("successMessage").style.display = "block";
+this.reset();
+});
+</script>
 
 </body>
 </html>
