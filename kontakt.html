@@ -2,8 +2,8 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Indoor Distance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt | Indoor Distance</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,49 +15,69 @@
 <a href="tjanster.html">Tjänster</a>
 <a href="om.html">Om oss</a>
 <a href="sociala.html">Media</a>
-<a href="kontakt.html">Kontakta</a>
+<a href="kontakt.html">Kontakt</a>
 </div>
 </nav>
 
-<div class="container">
+<div class="contact-wrapper">
 
+<div class="contact-left">
 <h1>Kontakta oss</h1>
+<p>
+Har du frågor om vår teknik, vill samarbeta eller veta mer om Indoor Distance?
+Skicka ett meddelande så återkommer vi så snabbt som möjligt.
+</p>
 
-<p>Har du frågor eller är du intresserad av samarbete?</p>
-
-<div class="card">
-
-<form action="https://formspree.io/f/xykdnppo" method="POST">
+<form id="contactForm" action="https://formspree.io/f/xykdnppo" method="POST">
 
 <input type="hidden" name="_redirect" value="https://indoordistance.github.io/indoordistance/thankyou.html">
+
 <input type="text" name="name" placeholder="Ditt namn" required>
 <input type="email" name="email" placeholder="Din e-postadress" required>
 <textarea name="message" placeholder="Ditt meddelande" required></textarea>
 
-<button type="submit" class="button">Skicka</button>
+<button type="submit" class="button" id="submitBtn">
+<span id="btnText">Skicka meddelande</span>
+<span class="spinner" id="spinner"></span>
+</button>
 
 </form>
+</div>
 
-<p id="successMessage" style="display:none; margin-top:20px;">
-Tack för att du kontaktade oss vi jobbar för att så snabbt som möjligt ska kunna svara på dina frågor
-</p>
+<div class="contact-right">
+<h2>Direktkontakt</h2>
+
+<div class="info-box">
+<p><strong>Email</strong><br>
+info.indoordistance@gmail.com</p>
+</div>
+
+<div class="info-box">
+<p><strong>Instagram</strong><br>
+@indoor_distance</p>
+</div>
+
+<div class="info-box">
+<p><strong>TikTok</strong><br>
+@indoor_distance</p>
+</div>
 
 </div>
 
 </div>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-e.preventDefault();
-document.getElementById("successMessage").style.display = "block";
-this.reset();
+const form = document.getElementById("contactForm");
+const button = document.getElementById("submitBtn");
+const btnText = document.getElementById("btnText");
+const spinner = document.getElementById("spinner");
+
+form.addEventListener("submit", function() {
+    button.disabled = true;
+    btnText.textContent = "Skickar...";
+    spinner.style.display = "inline-block";
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
