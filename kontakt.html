@@ -28,12 +28,12 @@ Har du frågor om vår teknik, vill samarbeta eller veta mer om Indoor Distance?
 Skicka ett meddelande så återkommer vi så snabbt som möjligt.
 </p>
 
-<form id="contactForm" action="https://formspree.io/f/xykdnpno" method="POST">
-
-<input type="hidden" name="_redirect" value="https://indoordistance.github.io/indoordistance/thankyou.html">
+<form id="contactForm">
 
 <input type="text" name="name" placeholder="Ditt namn" required>
+
 <input type="email" name="email" placeholder="Din e-postadress" required>
+
 <textarea name="message" placeholder="Ditt meddelande" required></textarea>
 
 <button type="submit" class="button" id="submitBtn">
@@ -72,13 +72,28 @@ const button = document.getElementById("submitBtn");
 const btnText = document.getElementById("btnText");
 const spinner = document.getElementById("spinner");
 
-form.addEventListener("submit", function() {
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
     button.disabled = true;
     btnText.textContent = "Skickar...";
     spinner.style.display = "inline-block";
+
+    const data = new FormData(form);
+
+    await fetch("https://formspree.io/f/xykdnpno", {
+        method: "POST",
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+
+    window.location.href = "thankyou.html";
 });
 </script>
 
 </body>
 </html>
+
 
