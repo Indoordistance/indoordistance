@@ -2,8 +2,7 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt | Indoor Distance</title>
+<title>Kontakt</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,85 +14,21 @@
 <a href="tjanster.html">Tjänster</a>
 <a href="om.html">Om oss</a>
 <a href="sociala.html">Media</a>
-<a href="kontakt.html">Kontakt</a>
+<a href="kontakt.html">Kontakta</a>
 </div>
 </nav>
 
-<div class="contact-wrapper">
+<div class="container">
 
-<div class="contact-left">
 <h1>Kontakta oss</h1>
-<p>
-Har du frågor om vår teknik, vill samarbeta eller veta mer om Indoor Distance?
-Skicka ett meddelande så återkommer vi så snabbt som möjligt.
-</p>
 
-<form id="contactForm">
-
-<input type="text" name="name" placeholder="Ditt namn" required>
-
-<input type="email" name="email" placeholder="Din e-postadress" required>
-
-<textarea name="message" placeholder="Ditt meddelande" required></textarea>
-
-<button type="submit" class="button" id="submitBtn">
-<span id="btnText">Skicka meddelande</span>
-<span class="spinner" id="spinner"></span>
-</button>
-
-</form>
-</div>
-
-<div class="contact-right">
-<h2>Direktkontakt</h2>
-
-<div class="info-box">
-<p><strong>Email</strong><br>
-info.indoordistance@gmail.com</p>
-</div>
-
-<div class="info-box">
-<p><strong>Instagram</strong><br>
-@indoor_distance</p>
-</div>
-
-<div class="info-box">
-<p><strong>TikTok</strong><br>
-@indoor_distance</p>
+<div class="card">
+<p>info.indoordistance@gmail.com</p>
+<p>Instagram: @indoor_distance</p>
+<p>TikTok: @indoor_distance</p>
 </div>
 
 </div>
-
-</div>
-
-<script>
-const form = document.getElementById("contactForm");
-const button = document.getElementById("submitBtn");
-const btnText = document.getElementById("btnText");
-const spinner = document.getElementById("spinner");
-
-form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    button.disabled = true;
-    btnText.textContent = "Skickar...";
-    spinner.style.display = "inline-block";
-
-    const data = new FormData(form);
-
-    await fetch("https://formspree.io/f/xykdnpno", {
-        method: "POST",
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-    });
-
-    window.location.href = "thankyou.html";
-});
-</script>
 
 </body>
 </html>
-
-
