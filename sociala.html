@@ -6,16 +6,28 @@
 <title>Indoor Distance</title>
 <link rel="stylesheet" href="style.css">
 </head>
+<script type="module" src="js/firebase.js"></script>
 <body>
 
 <nav>
 <div><strong>Indoor Distance</strong></div>
-<div>
+
+<div id="navLinks">
+
 <a href="index.html">Hem</a>
 <a href="tjanster.html">Tjänster</a>
 <a href="om.html">Om oss</a>
 <a href="sociala.html">Media</a>
 <a href="kontakt.html">Kontakta</a>
+
+<!-- Syns när man INTE är inloggad -->
+<a href="login.html" id="loginLink">Logga in</a>
+<a href="register.html" id="registerLink">Registrera</a>
+
+<!-- Syns när man ÄR inloggad -->
+<a href="dashboard.html" id="dashboardLink" style="display:none;">Dashboard</a>
+<a href="#" id="logoutLink" style="display:none;">Logga ut</a>
+
 </div>
 </nav>
 
@@ -39,3 +51,4 @@
 
 </body>
 </html>
+
