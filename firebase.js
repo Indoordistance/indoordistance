@@ -54,3 +54,39 @@ window.logoutUser = function() {
     window.location.href = "login.html";
   });
 }
+
+// Visa / dölj knappar beroende på inloggning
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const loginLink = document.getElementById("loginLink");
+  const registerLink = document.getElementById("registerLink");
+  const dashboardLink = document.getElementById("dashboardLink");
+  const logoutLink = document.getElementById("logoutLink");
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      if (loginLink) loginLink.style.display = "none";
+      if (registerLink) registerLink.style.display = "none";
+
+      if (dashboardLink) dashboardLink.style.display = "inline";
+      if (logoutLink) logoutLink.style.display = "inline";
+    } else {
+      if (loginLink) loginLink.style.display = "inline";
+      if (registerLink) registerLink.style.display = "inline";
+
+      if (dashboardLink) dashboardLink.style.display = "none";
+      if (logoutLink) logoutLink.style.display = "none";
+    }
+  });
+
+  if (logoutLink) {
+    logoutLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      signOut(auth);
+      window.location.href = "index.html";
+    });
+  }
+
+});
