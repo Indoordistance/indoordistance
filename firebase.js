@@ -129,3 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+const registerBtn = document.getElementById("registerBtn");
+
+registerBtn.addEventListener("click", async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Konto skapat!");
+    window.location.href = "dashboard.html";
+  } catch (error) {
+    alert(error.message);
+  }
+});
