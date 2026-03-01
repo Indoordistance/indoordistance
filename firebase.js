@@ -60,19 +60,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========== NAVBAR ==========
   const loginLink = document.getElementById("loginLink");
   const registerLink = document.getElementById("registerLink");
-  const dashboardLink = document.getElementById("dashboardLink");
+  const accountLink = document.getElementById("accountLink");
   const logoutLink = document.getElementById("logoutLink");
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       if (loginLink) loginLink.style.display = "none";
       if (registerLink) registerLink.style.display = "none";
-      if (dashboardLink) dashboardLink.style.display = "inline";
+      if (accountLink) accountLink.style.display = "inline";
       if (logoutLink) logoutLink.style.display = "inline";
     } else {
       if (loginLink) loginLink.style.display = "inline";
       if (registerLink) registerLink.style.display = "inline";
-      if (dashboardLink) dashboardLink.style.display = "none";
+      if (accountLink) accountLink.style.display = "none";
       if (logoutLink) logoutLink.style.display = "none";
     }
   });
@@ -87,3 +87,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
