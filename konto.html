@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitt konto | Indoor Distance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<div><strong>Indoor Distance</strong></div>
+
+<div id="navLinks">
+<a href="index.html">Hem</a>
+<a href="tjanster.html">Tjänster</a>
+<a href="om.html">Om oss</a>
+<a href="sociala.html">Media</a>
+<a href="kontakt.html">Kontakta</a>
+
+<a href="login.html" id="loginLink">Logga in</a>
+<a href="register.html" id="registerLink">Registrera</a>
+
+<a href="konto.html" id="accountLink" style="display:none;">Mitt konto</a>
+<a href="#" id="logoutLink" style="display:none;">Logga ut</a>
+</div>
+</nav>
+
+<div class="container">
+<h1>Mitt konto</h1>
+
+<div class="card">
+<p><strong>Email:</strong> <span id="userEmail"></span></p>
+<p><strong>UID:</strong> <span id="userUID"></span></p>
+</div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+</body>
+</html>
