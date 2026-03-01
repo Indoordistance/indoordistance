@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("Konto skapat!");
-        window.location.href = "dashboard.html";
+        window.location.href = "konto.html"; // 🔥 ändrad hit
       } catch (error) {
         alert(error.message);
       }
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "dashboard.html";
+        window.location.href = "konto.html"; // 🔥 ändrad hit
       } catch (error) {
         alert(error.message);
       }
@@ -77,6 +77,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ========== KONTO-SIDA ==========
+  const userEmail = document.getElementById("userEmail");
+  const userUID = document.getElementById("userUID");
+
+  if (userEmail || userUID) {
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html"; // skydda sidan
+      } else {
+        if (userEmail) userEmail.textContent = user.email;
+        if (userUID) userUID.textContent = user.uid;
+      }
+    });
+  }
+
   // ========== LOGGA UT ==========
   if (logoutLink) {
     logoutLink.addEventListener("click", async (e) => {
@@ -87,4 +102,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-
