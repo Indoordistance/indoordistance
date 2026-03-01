@@ -92,6 +92,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+const verifyStatus = document.getElementById("verifyStatus");
+const verifyBtn = document.getElementById("verifyBtn");
+
+if (userEmail || userUID) {
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+
+      if (userEmail) userEmail.textContent = user.email;
+      if (userUID) userUID.textContent = user.uid;
+
+      // 🔥 Mail verifiering
+      if (verifyStatus) {
+        if (user.emailVerified) {
+          verifyStatus.textContent = "Verifierad ✅";
+          verifyStatus.style.color = "green";
+        } else {
+          verifyStatus.textContent = "Ej verifierad ❌";
+          verifyStatus.style.color = "red";
+          if (verifyBtn) verifyBtn.style.display = "inline";
+        }
+      }
+
+      if (verifyBtn) {
+        verifyBtn.addEventListener("click", async () => {
+          await user.sendEmailVerification();
+          alert("Verifieringsmail skickat!");
+        });
+      }
+
+    }
+  });
+}
+  
   // ========== LOGGA UT ==========
   if (logoutLink) {
     logoutLink.addEventListener("click", async (e) => {
@@ -102,3 +137,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
