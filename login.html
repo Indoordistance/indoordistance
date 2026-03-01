@@ -14,10 +14,9 @@
 <input type="email" id="email" placeholder="E-post">
 <input type="password" id="password" placeholder="Lösenord">
 
-<button onclick="loginUser(
-document.getElementById('email').value,
-document.getElementById('password').value
-)">Logga in</button>
+<button id="loginBtn">
+  Logga in
+</button>
 
 <p>Har du inget konto? <a href="register.html">Registrera</a></p>
 </div>
@@ -25,4 +24,5 @@ document.getElementById('password').value
 <script type="module" src="js/firebase.js"></script>
 </body>
 </html>
+
 
