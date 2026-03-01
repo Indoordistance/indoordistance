@@ -24,8 +24,13 @@
 <a href="register.html" id="registerLink">Registrera</a>
 
 <!-- Syns när man ÄR inloggad -->
-<a href="konto.html" id="accountLink" style="display:none;">Mitt konto</a>
-<a href="#" id="logoutLink" style="display:none;">Logga ut</a>
+<div id="userMenu" style="display:none; position:relative;">
+  <span id="userName" style="cursor:pointer;">👤 Konto ▾</span>
+  <div id="dropdownMenu" style="display:none; position:absolute; right:0; background:white; padding:10px; border:1px solid #ccc;">
+    <a href="konto.html">Mitt konto</a><br>
+    <a href="#" id="logoutLink">Logga ut</a>
+  </div>
+</div>
 
 </div>
 </nav>
@@ -76,5 +81,6 @@ Indoor Distance © 2026
 <script type="module" src="firebase.js"></script>
 </body>
 </html>
+
 
 
