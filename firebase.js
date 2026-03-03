@@ -14,12 +14,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "DIN_API_KEY",
-  authDomain: "DIN_AUTH_DOMAIN",
-  projectId: "DIN_PROJECT_ID",
-  storageBucket: "DIN_STORAGE",
-  messagingSenderId: "DIN_SENDER_ID",
-  appId: "DIN_APP_ID"
+  apiKey: "AIzaSyChckiB5mOS5qHPh_LKTBj9x8wxCq0EPdo",
+  authDomain: "indoor-distance-f7757.firebaseapp.com",
+  projectId: "indoor-distance-f7757",
+  storageBucket: "indoor-distance-f7757.firebasestorage.app",
+  messagingSenderId: "827100524255",
+  appId: "1:827100524255:web:37260d1aea0b258afe836a"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -192,3 +192,4 @@ function setupLogout() {
     window.location.href = "index.html";
   });
 }
+
