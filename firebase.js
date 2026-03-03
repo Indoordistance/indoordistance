@@ -95,24 +95,30 @@ function setupLogin() {
 function setupNavbar() {
   const loginLink = document.getElementById("loginLink");
   const registerLink = document.getElementById("registerLink");
-  const accountLink = document.getElementById("accountLink");
+  const userMenu = document.getElementById("userMenu");
+  const userName = document.getElementById("userName");
   const logoutLink = document.getElementById("logoutLink");
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       if (loginLink) loginLink.style.display = "none";
       if (registerLink) registerLink.style.display = "none";
-      if (accountLink) accountLink.style.display = "inline";
-      if (logoutLink) logoutLink.style.display = "inline";
+      if (userMenu) userMenu.style.display = "inline-block";
+      if (userName) userName.textContent = "👤 " + user.email + " ▾";
     } else {
       if (loginLink) loginLink.style.display = "inline";
       if (registerLink) registerLink.style.display = "inline";
-      if (accountLink) accountLink.style.display = "none";
-      if (logoutLink) logoutLink.style.display = "none";
+      if (userMenu) userMenu.style.display = "none";
     }
   });
-}
 
+  if (logoutLink) {
+    logoutLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      signOut(auth);
+    });
+  }
+}
 
 // ===============================
 // 🔥 KONTO-SIDA
@@ -192,4 +198,5 @@ function setupLogout() {
     window.location.href = "index.html";
   });
 }
+
 
